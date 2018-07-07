@@ -1,0 +1,11 @@
+export EDITOR=$(which vim)
+export PATH=$PATH:~/.local/bin
+
+# powerline
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. ~/.local/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
+
+# easier navigation
+CDPATH=.:~/Documents/repos
