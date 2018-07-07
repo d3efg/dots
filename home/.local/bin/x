@@ -1,0 +1,19 @@
+#!/bin/bash
+TARGET=$1
+if [[ "x$TARGET" == "x" ]]; then
+  TARGET=.
+fi
+
+if [[ $(file $TARGET) =~ "directory" ]]; then
+  echo -- Tree List at $TARGET --
+  ls -lha $TARGET
+else
+  TYPE=$(file $TARGET)
+  echo $TYPE
+  if [[ $TYPE =~ "text" ]]; then
+    echo
+    echo -- File Contents of $TARGET --
+    highlight --force --out-format=xterm256 $TARGET
+  fi
+fi
+
